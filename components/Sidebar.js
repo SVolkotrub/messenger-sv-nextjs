@@ -14,7 +14,7 @@ import { useRouter } from 'next/router';
 export default function Sidebar() {
     const [user] = useAuthState(auth);
     const userChatRef = collection(db, "chats");
-    const queryChats= query(userChatRef, where('users', 'array-contains', user.email));
+    const queryChats= query(userChatRef, where('users', 'array-contains', user?.email));
     const [chatsSnapshot] = useCollection(queryChats);
     const chats = chatsSnapshot?.docs.map(doc => ({ id: doc.id, ...doc.data() }));
 

@@ -9,7 +9,7 @@ import { useCollection } from 'react-firebase-hooks/firestore';
 import { auth, db } from '../firebaseConfig';
 import { collection, addDoc, query, where } from "firebase/firestore";
 import Chat from './Chat';
-
+import { useRouter } from 'next/router';
 
 export default function Sidebar() {
     const [user] = useAuthState(auth);
@@ -30,13 +30,19 @@ export default function Sidebar() {
     }
     }   
 
+    const router = useRouter();
+    const logoutUser = () => {
+        signOut(auth);
+        router.push('/')
+    }
+
     return (
         <Container>
             <HeaderContainer>
                 <Header>
-                    <UserAvatar src={user.photoURL || logo }  onClick={() => signOut(auth)}/>
+                    <UserAvatar src={user.photoURL || logo }  onClick={logoutUser}/>
                     <UserName>{user.displayName }</UserName>
-                    <ArrowForwardIosIcon onClick={()=> signOut(auth)}/>
+                    <ArrowForwardIosIcon onClick={logoutUser}/>
                 </Header>
                     <SidebarButton onClick={()=>newChat()}>Search or start a new chat</SidebarButton>
                 

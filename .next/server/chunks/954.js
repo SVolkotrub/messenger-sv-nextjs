@@ -85,6 +85,10 @@ scrollbar-width: none;
 }
 `;
 const UserAvatar = styled_components__WEBPACK_IMPORTED_MODULE_3___default()(_material_ui_core__WEBPACK_IMPORTED_MODULE_1__.Avatar)`
+cursor: pointer;
+height: 40px;
+width: 40px;
+border-radius: 50%;
 margin: 5px;
 margin-right: 15px;
 `;
@@ -140,7 +144,7 @@ var __webpack_async_dependencies__ = __webpack_handle_async_dependencies__([fire
 function Sidebar() {
     const [user] = (0,react_firebase_hooks_auth__WEBPACK_IMPORTED_MODULE_7__.useAuthState)(_firebaseConfig__WEBPACK_IMPORTED_MODULE_9__/* .auth */ .I);
     const userChatRef = (0,firebase_firestore__WEBPACK_IMPORTED_MODULE_10__.collection)(_firebaseConfig__WEBPACK_IMPORTED_MODULE_9__.db, "chats");
-    const queryChats = (0,firebase_firestore__WEBPACK_IMPORTED_MODULE_10__.query)(userChatRef, (0,firebase_firestore__WEBPACK_IMPORTED_MODULE_10__.where)("users", "array-contains", user.email));
+    const queryChats = (0,firebase_firestore__WEBPACK_IMPORTED_MODULE_10__.query)(userChatRef, (0,firebase_firestore__WEBPACK_IMPORTED_MODULE_10__.where)("users", "array-contains", user?.email));
     const [chatsSnapshot] = (0,react_firebase_hooks_firestore__WEBPACK_IMPORTED_MODULE_8__.useCollection)(queryChats);
     const chats = chatsSnapshot?.docs.map((doc)=>({
             id: doc.id,
@@ -151,7 +155,7 @@ function Sidebar() {
         const input = prompt("Please enter an email address for the user you wish to chat with");
         if (!input) return null;
         let validator = __webpack_require__(72);
-        if (validator.validate(input) && input !== user.email && !chatExists(input)) {
+        if (validator.validate(input) && input !== user?.email && !chatExists(input)) {
             await (0,firebase_firestore__WEBPACK_IMPORTED_MODULE_10__.addDoc)((0,firebase_firestore__WEBPACK_IMPORTED_MODULE_10__.collection)(_firebaseConfig__WEBPACK_IMPORTED_MODULE_9__.db, "chats"), {
                 users: [
                     user.email,

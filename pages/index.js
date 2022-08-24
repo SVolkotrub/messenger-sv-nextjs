@@ -1,4 +1,4 @@
-import Head from 'next/head'
+npm startimport Head from 'next/head'
 import Sidebar from '../components/Sidebar'
 
 

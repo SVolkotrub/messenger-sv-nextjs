@@ -1,5 +1,4 @@
 import React from 'react';
-import { logo} from '../public/user.png'
 import styled from 'styled-components';
 import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos';
 import {  signOut } from "firebase/auth";
@@ -40,7 +39,7 @@ export default function Sidebar() {
         <Container>
             <HeaderContainer>
                 <Header>
-                    <UserAvatar src={user.photoURL || logo }  onClick={logoutUser}/>
+                    <UserAvatar src={user.photoURL }  onClick={logoutUser}/>
                     <UserName>{user.displayName }</UserName>
                     <ArrowForwardIosIcon onClick={logoutUser}/>
                 </Header>

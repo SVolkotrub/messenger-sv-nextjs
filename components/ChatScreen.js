@@ -1,12 +1,9 @@
 import React, { useState, useRef } from 'react';
-
 import styled from 'styled-components';
 import { auth,db } from '../firebaseConfig';
 import { useAuthState } from "react-firebase-hooks/auth";
 import { useRouter } from "next/router";
-import { Avatar } from '@material-ui/core';
 import Message from './Message';
-import InsertEmoticonIcon from '@material-ui/icons/InsertEmoticon';
 import {  doc, addDoc, collection,setDoc, serverTimestamp, where, query } from "firebase/firestore"; 
 import getEmail from '../utils/getEmail';
 import { useCollection, useCollectionData } from 'react-firebase-hooks/firestore';
@@ -48,18 +45,14 @@ function ChatScreen(props) {
   return (
       <Container>
           <Header>
-              <UserAvatar src={recipientUser?.photoURL } /> 
-             
+            <UserAvatar src={recipientUser?.photoURL } /> 
             <UserName> {recipientUser?.userName } </UserName>
-               
-             
           </Header>
           <MessageContainer>
               {showMessages()}
               <EndOfAllMessage ref={endOfMessageRef}></EndOfAllMessage>
           </MessageContainer>
           <InputContainer>
-              <InsertEmoticonIcon />
               <Input value={input} onChange={(e) => setInput(e.target.value)} />
               <button hidden disabled={!input} type="submit" onClick={sendMessage} >Send message</button>
           </InputContainer>
@@ -93,10 +86,6 @@ border-radius: 50%;
 const UserName = styled.h3`
 margin-left: 10px;
 `;
-
-// const EndOfAllMessage = styled.div`
-// margin-bottom: 50px;
-// `;
 
 const MessageContainer = styled.div`
 padding: 30px;

@@ -18,16 +18,13 @@ __webpack_require__.a(module, async (__webpack_handle_async_dependencies__, __we
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var next_head__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(968);
 /* harmony import */ var next_head__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(next_head__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _material_ui_core__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(130);
-/* harmony import */ var _material_ui_core__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(518);
-/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(styled_components__WEBPACK_IMPORTED_MODULE_4__);
-/* harmony import */ var _firebaseConfig__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(957);
-/* harmony import */ var react_firebase_hooks_auth__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(830);
-/* harmony import */ var react_firebase_hooks_auth__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(react_firebase_hooks_auth__WEBPACK_IMPORTED_MODULE_6__);
-var __webpack_async_dependencies__ = __webpack_handle_async_dependencies__([_firebaseConfig__WEBPACK_IMPORTED_MODULE_5__]);
-_firebaseConfig__WEBPACK_IMPORTED_MODULE_5__ = (__webpack_async_dependencies__.then ? (await __webpack_async_dependencies__)() : __webpack_async_dependencies__)[0];
-
+/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(518);
+/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(styled_components__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _firebaseConfig__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(957);
+/* harmony import */ var react_firebase_hooks_auth__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(830);
+/* harmony import */ var react_firebase_hooks_auth__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(react_firebase_hooks_auth__WEBPACK_IMPORTED_MODULE_5__);
+var __webpack_async_dependencies__ = __webpack_handle_async_dependencies__([_firebaseConfig__WEBPACK_IMPORTED_MODULE_4__]);
+_firebaseConfig__WEBPACK_IMPORTED_MODULE_4__ = (__webpack_async_dependencies__.then ? (await __webpack_async_dependencies__)() : __webpack_async_dependencies__)[0];
 
 
 
@@ -35,7 +32,7 @@ _firebaseConfig__WEBPACK_IMPORTED_MODULE_5__ = (__webpack_async_dependencies__.t
 
 
 function Login() {
-    const [signInWithGoogle, user, loading, error] = (0,react_firebase_hooks_auth__WEBPACK_IMPORTED_MODULE_6__.useSignInWithGoogle)(_firebaseConfig__WEBPACK_IMPORTED_MODULE_5__/* .auth */ .I);
+    const [signInWithGoogle, user, loading, error] = (0,react_firebase_hooks_auth__WEBPACK_IMPORTED_MODULE_5__.useSignInWithGoogle)(_firebaseConfig__WEBPACK_IMPORTED_MODULE_4__/* .auth */ .I);
     return /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)(Container, {
         children: [
             /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx((next_head__WEBPACK_IMPORTED_MODULE_2___default()), {
@@ -48,7 +45,7 @@ function Login() {
                     /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(Logo, {
                         src: "http://assets.stickpng.com/images/580b57fcd9996e24bc43c543.png"
                     }),
-                    /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(_material_ui_core__WEBPACK_IMPORTED_MODULE_3__.Button, {
+                    /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(Button, {
                         onClick: ()=>signInWithGoogle("", {
                                 prompt: "select_account"
                             }),
@@ -61,13 +58,13 @@ function Login() {
     });
 }
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Login);
-const Container = (styled_components__WEBPACK_IMPORTED_MODULE_4___default().div)`
+const Container = (styled_components__WEBPACK_IMPORTED_MODULE_3___default().div)`
 display: grid;
 place-items: center;
 height: 100vh;
 background-color: whitesmoke;
 `;
-const LoginContainer = (styled_components__WEBPACK_IMPORTED_MODULE_4___default().div)`
+const LoginContainer = (styled_components__WEBPACK_IMPORTED_MODULE_3___default().div)`
 padding: 100px;
 display: flex;
 flex-direction: column;
@@ -76,11 +73,22 @@ background-color: white;
 border-radius: 50px;
 box-shadow: 0px 4px 14px -3px rgba(0,0,0,0.7);
 `;
-const Logo = (styled_components__WEBPACK_IMPORTED_MODULE_4___default().img)`
+const Logo = (styled_components__WEBPACK_IMPORTED_MODULE_3___default().img)`
 height:200px;
 width: 200px;
 margin-bottom: 50px;
-
+`;
+const Button = (styled_components__WEBPACK_IMPORTED_MODULE_3___default().button)`
+font-size: 16px;
+font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+padding:15px;
+border: 1px solid whitesmoke;
+background-color: whitesmoke;
+border-radius: 15px;
+text-transform: uppercase;
+:hover {
+  transform: scale(102%);
+}
 `;
 
 __webpack_async_result__();
@@ -149,13 +157,6 @@ function MyApp({ Component , pageProps  }) {
 
 __webpack_async_result__();
 } catch(e) { __webpack_async_result__(e); } });
-
-/***/ }),
-
-/***/ 130:
-/***/ ((module) => {
-
-module.exports = require("@material-ui/core");
 
 /***/ }),
 

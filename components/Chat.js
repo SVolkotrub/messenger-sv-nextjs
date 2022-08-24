@@ -45,6 +45,10 @@ scrollbar-width: none;
 `;
 
 const UserAvatar = styled(Avatar)`
+cursor: pointer;
+height: 40px;
+width: 40px;
+border-radius: 50%;
 margin: 5px;
 margin-right: 15px;
 `;

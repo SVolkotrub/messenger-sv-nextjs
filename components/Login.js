@@ -1,6 +1,5 @@
 import React from 'react';
 import Head from 'next/head';
-import { Button } from "@material-ui/core";
 import styled from 'styled-components';
 import { auth } from '../firebaseConfig';
 import { useSignInWithGoogle } from 'react-firebase-hooks/auth';
@@ -44,5 +43,17 @@ const Logo = styled.img`
 height:200px;
 width: 200px;
 margin-bottom: 50px;
+`;
 
+const Button = styled.button`
+font-size: 16px;
+font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+padding:15px;
+border: 1px solid whitesmoke;
+background-color: whitesmoke;
+border-radius: 15px;
+text-transform: uppercase;
+:hover {
+  transform: scale(102%);
+}
 `;

@@ -4,6 +4,7 @@ import moment from 'moment';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import styled from 'styled-components';
 import { auth } from '../firebaseConfig';
+
 function Message({user, msg}) {
   const [userLoggedIn] = useAuthState(auth);
   const TypeOfMessage = user === userLoggedIn.email ? Sender : Reciever;

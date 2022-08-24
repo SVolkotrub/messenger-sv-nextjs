@@ -1,6 +1,7 @@
-import { Avatar } from '@material-ui/core';
-import React, { useEffect } from 'react'
+import React from 'react'
 import styled from 'styled-components';
+import Image from 'next/image'
+import avatarPic from '../public/avatar.png'
 import { useAuthState } from "react-firebase-hooks/auth";
 import getEmail from '../utils/getEmail';
 import { auth, db } from '../firebaseConfig';
@@ -22,8 +23,9 @@ function Chat({ id, users }) {
 
   return (
       <Container onClick={()=>enterChat()}>
-          {recipient ? (<UserAvatar src={recipient?.photoURL} />) : (<UserAvatar>{recipientEmail[0]}</UserAvatar>)}
-          <p>{ recipientEmail}</p>
+          {(recipient?.photoURL) ? (<UserAvatar src={recipient?.photoURL} alt="" />) : (<Image src={avatarPic} width={50 } height={50} alt="" style={defaultImageStyle} />  )}
+          
+          <Text>{ recipientEmail}</Text>
       </Container>
   )
 }
@@ -44,11 +46,21 @@ scrollbar-width: none;
 }
 `;
 
-const UserAvatar = styled(Avatar)`
+const UserAvatar = styled.img`
 cursor: pointer;
 height: 40px;
 width: 40px;
 border-radius: 50%;
 margin: 5px;
-margin-right: 15px;
+
 `;
+
+const Text = styled.p`
+margin-left: 15px;
+`;
+
+const defaultImageStyle = {
+cursor: 'pointer',
+borderRadius: '50%',
+margin: '5px 15px',
+}

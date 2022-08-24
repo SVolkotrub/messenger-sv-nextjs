@@ -1,9 +1,12 @@
 import React, { useState, useRef } from 'react';
 import styled from 'styled-components';
+import defaultAvatar from '../public/avatar.png';
 import { auth,db } from '../firebaseConfig';
 import { useAuthState } from "react-firebase-hooks/auth";
 import { useRouter } from "next/router";
 import Message from './Message';
+import Image from 'next/image'
+import avatarPic from '../public/avatar.png'
 import {  doc, addDoc, collection,setDoc, serverTimestamp, where, query } from "firebase/firestore"; 
 import getEmail from '../utils/getEmail';
 import { useCollection, useCollectionData } from 'react-firebase-hooks/firestore';
@@ -40,20 +43,20 @@ function ChatScreen(props) {
     const scrollToBottom = () => {
         endOfMessageRef.current.scrollIntoView({ behavior: "smooth", block: "start" });
     }
-    
-    
+       
   return (
       <Container>
           <Header>
-            <UserAvatar src={recipientUser?.photoURL } /> 
-            <UserName> {recipientUser?.userName } </UserName>
+            {(recipientUser && recipientUser?.photoURL) ? (<UserAvatar src={recipientUser?.photoURL} alt="" />) : (<Image src={avatarPic} width={50 } height={50} alt="" style={defaultImageStyle} />  )} 
+            {/* <UserAvatar src={recipientUser?.photoURL ? recipientUser?.photoURL : defaultAvatar } alt="" />  */}
+            {recipientUser?.userName ? (<UserName> {recipientUser?.userName } </UserName>) : (<UserName> {recipientEmail } </UserName>)}
           </Header>
           <MessageContainer>
               {showMessages()}
               <EndOfAllMessage ref={endOfMessageRef}></EndOfAllMessage>
           </MessageContainer>
           <InputContainer>
-              <Input value={input} onChange={(e) => setInput(e.target.value)} />
+              <Input placeholder='Type something nice...' value={input} onChange={(e) => setInput(e.target.value)} />
               <button hidden disabled={!input} type="submit" onClick={sendMessage} >Send message</button>
           </InputContainer>
     </Container>
@@ -82,6 +85,12 @@ height: 40px;
 width: 40px;
 border-radius: 50%;
 `;
+
+const defaultImageStyle = {
+cursor: 'pointer',
+borderRadius: '50%',
+margin: '5px 15px',
+}
 
 const UserName = styled.h3`
 margin-left: 10px;

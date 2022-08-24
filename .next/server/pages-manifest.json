@@ -1,7 +1,6 @@
 {
   "/_app": "pages/_app.js",
   "/_error": "pages/_error.js",
-  "/api/hello": "pages/api/hello.js",
   "/chat/[id]": "pages/chat/[id].html",
   "/": "pages/index.html",
   "/_document": "pages/_document.js",

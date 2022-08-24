@@ -1,6 +1,5 @@
 import React from 'react';
 import styled from 'styled-components';
-import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos';
 import {  signOut } from "firebase/auth";
 import {require}  from 'email-validator';
 import { useAuthState } from "react-firebase-hooks/auth";
@@ -41,7 +40,6 @@ export default function Sidebar() {
                 <Header>
                     <UserAvatar src={user.photoURL }  onClick={logoutUser}/>
                     <UserName>{user.displayName }</UserName>
-                    <ArrowForwardIosIcon onClick={logoutUser}/>
                 </Header>
                     <SidebarButton onClick={()=>newChat()}>Search or start a new chat</SidebarButton>
                 
@@ -84,7 +82,6 @@ position: sticky;
 top: 0;
 background-color: whitesmoke;
 z-index: 1;
-justify-content: space-between;
 align-items: center;
 padding-top:5px;
 height: 80px;
@@ -103,6 +100,7 @@ border-radius: 50%;
 
 const UserName = styled.h3`
 text-align: left;
+margin-left: 15px;
 word-break: break-word;
 `;
 

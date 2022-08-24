@@ -1,42 +1,39 @@
 {
   "polyfillFiles": [
-    "static/chunks/polyfills-c67a75d1b6f99dc8.js"
+    "static/chunks/polyfills.js"
   ],
-  "devFiles": [],
-  "ampDevFiles": [],
+  "devFiles": [
+    "static/chunks/react-refresh.js"
+  ],
+  "ampDevFiles": [
+    "static/chunks/webpack.js",
+    "static/chunks/amp.js"
+  ],
   "lowPriorityFiles": [
-    "static/phTd6O0KHPy9Q22Ttnjgz/_buildManifest.js",
-    "static/phTd6O0KHPy9Q22Ttnjgz/_ssgManifest.js"
+    "static/development/_buildManifest.js",
+    "static/development/_ssgManifest.js"
   ],
   "rootMainFiles": [],
   "pages": {
     "/": [
-      "static/chunks/webpack-246c5233b889db27.js",
-      "static/chunks/framework-db825bd0b4ae01ef.js",
-      "static/chunks/main-3123a443c688934f.js",
-      "static/chunks/697-fe4428c48189ce90.js",
-      "static/chunks/pages/index-342c6e34d13de042.js"
+      "static/chunks/webpack.js",
+      "static/chunks/main.js",
+      "static/chunks/pages/index.js"
     ],
     "/_app": [
-      "static/chunks/webpack-246c5233b889db27.js",
-      "static/chunks/framework-db825bd0b4ae01ef.js",
-      "static/chunks/main-3123a443c688934f.js",
-      "static/css/ab44ce7add5c3d11.css",
-      "static/chunks/pages/_app-d56857eed694edaa.js"
+      "static/chunks/webpack.js",
+      "static/chunks/main.js",
+      "static/chunks/pages/_app.js"
     ],
     "/_error": [
-      "static/chunks/webpack-246c5233b889db27.js",
-      "static/chunks/framework-db825bd0b4ae01ef.js",
-      "static/chunks/main-3123a443c688934f.js",
-      "static/chunks/pages/_error-7397496ca01950b1.js"
+      "static/chunks/webpack.js",
+      "static/chunks/main.js",
+      "static/chunks/pages/_error.js"
     ],
     "/chat/[id]": [
-      "static/chunks/webpack-246c5233b889db27.js",
-      "static/chunks/framework-db825bd0b4ae01ef.js",
-      "static/chunks/main-3123a443c688934f.js",
-      "static/chunks/75fc9c18-4275c2966b1879ef.js",
-      "static/chunks/697-fe4428c48189ce90.js",
-      "static/chunks/pages/chat/[id]-9878a91b8c6a7f90.js"
+      "static/chunks/webpack.js",
+      "static/chunks/main.js",
+      "static/chunks/pages/chat/[id].js"
     ]
   },
   "ampFirstPages": []

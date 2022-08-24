@@ -1,6 +1,6 @@
 import React, { useState, useRef } from 'react';
 import styled from 'styled-components';
-import defaultAvatar from '../public/avatar.png';
+import axios from "axios";
 import { auth,db } from '../firebaseConfig';
 import { useAuthState } from "react-firebase-hooks/auth";
 import { useRouter } from "next/router";
@@ -29,7 +29,25 @@ function ChatScreen(props) {
                 
             )
       }
-  }
+    }
+    
+    const writeAnswer =  (response) => {
+        const answer = response.data.value;
+        const recipientUserName = recipientUser ? recipientUser.userName : recipientEmail;
+        const recipientPhoto = recipientUser ? recipientUser.photoURL : undefined;
+        setTimeout(async () => {
+            await addDoc(collection(db, `chats/${id}/messages`), { userName: recipientUserName, message: answer, user: recipientEmail, timestamp: serverTimestamp(), photoURL: recipientPhoto, });
+        }, 10000);
+        console.log(response.data.value);
+
+    }
+
+    const getAsyncAnswer = () => {
+        let apiAnswer = `https://api.chucknorris.io/jokes/random`;
+        axios.get(apiAnswer).then(writeAnswer).catch(function (error) {
+            alert('Unfortunately, something is wrong with connection to database, some problems with jokes...');
+        });
+    }
      
     const sendMessage = async (e) => { 
         e.preventDefault();
@@ -38,6 +56,7 @@ function ChatScreen(props) {
         await addDoc(collection(db, `chats/${id}/messages`), {userName: user.displayName, message: input, user: user.email, timestamp: serverTimestamp(), photoURL: user.photoURL, });
         setInput("");
         scrollToBottom();
+        getAsyncAnswer();
     }
    
     const scrollToBottom = () => {
